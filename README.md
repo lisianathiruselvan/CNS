@@ -1,4 +1,6 @@
 ## EX. NO: 1 : IMPLEMENTATION OF CAESAR CIPHER
+### Name: LISIANA T
+### Reg no: 212222240053
  
 
 ## AIM:
@@ -27,8 +29,61 @@ becomes C. To change a message back, each letter is replaced by the one three be
 ### STEP-5: Display the cipher text obtained above.
 
 
-PROGRAM :-
+### PROGRAM :-
+```
+#include <stdio.h>
+#include <string.h>
+
+int main()
+ {
+    int key;
+    char s[1000];
+
+    printf("Enter a plaintext to encrypt:\n");
+    fgets(s, sizeof(s), stdin);
+    printf("Enter key:\n");
+    scanf("%d", &key);
+
+    int n = strlen(s);
+
+    for (int i = 0; i < n; i++) 
+    {
+        char c = s[i];
+        if (c >= 'a' && c <= 'z') 
+        {
+            s[i] = 'a' + (c - 'a' + key) % 26;
+        }
+        else if (c >= 'A' && c <= 'Z')
+        {
+            s[i] = 'A' + (c - 'A' + key) % 26;
+        }
+    }
+    printf("Encrypted message: %s\n", s);
+
+    for (int i = 0; i < n; i++)
+    {
+        char c = s[i];
+        if (c >= 'a' && c <= 'z') 
+        {
+            s[i] = 'a' + (c - 'a' - key + 26) % 26; 
+        }
+        else if (c >= 'A' && c <= 'Z')
+        {
+            s[i] = 'A' + (c - 'A' - key + 26) % 26; 
+        }
+    }
+    printf("Decrypted message: %s\n", s);
+
+    return 0;
+}
+```
 
 
 
-OUTPUT :-
+
+### OUTPUT :-
+![image](https://github.com/user-attachments/assets/211d86ee-d363-4ac0-83ff-d2ae515e6c63)
+
+### Result:
+Thus the program executed successfully.
+
